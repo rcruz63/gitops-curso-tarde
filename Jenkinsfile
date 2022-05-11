@@ -1,7 +1,19 @@
+#!groovy
+
+@Library('github.com/ayudadigital/jenkins-pipeline-library@v6.3.0') _
+
+// Initialize global config
+cfg = jplConfig('mapfre-gitpos-laboratorio-jenkins', 'bash', '', [email: 'example@example.com'], 'main')
+
 pipeline {
     agent any
 
     stages {
+        stage ('Initialize') {
+            steps  {
+                jplStart(cfg)
+            }
+        }
         stage('Hello') {
             steps {
                 echo 'Hello World!'
