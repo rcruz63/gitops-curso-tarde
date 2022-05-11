@@ -7,7 +7,7 @@ pipeline {
                 echo 'Hello World!'
             }
         }
-        stage{
+        stage ('secreto'){
             agent docker-agent
             steps{
                 sh 'echo "secreto" | ./secreto.sh pepito'
